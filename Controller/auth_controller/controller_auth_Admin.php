@@ -11,6 +11,7 @@ class controller_auth_Admin
         $model_auth_Admin->affiche_form_Admin() ;
     }
 
+    
     function controller_check_Admin()  {
         extract($_POST);
       

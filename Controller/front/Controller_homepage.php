@@ -12,6 +12,7 @@ class Controller_homepage{
     }
     function affichebuycard() {
         extract($_GET) ; 
+      
     
         $id_horaire = $id_card ; 
         $homepage = new homepage();

@@ -17,6 +17,8 @@
   include_once "Controller\ControlleOperateur.php" ;
   include_once "Controller\auth_controller\controller_auth_Operateur.php" ;
   include_once "Controller\auth_controller\controller_auth_Admin.php" ;
+  include_once "Controller\Controller_Reservation.php" ;
+  include_once "Controller\ControllerClient.php" ;
 
 
 
@@ -28,6 +30,8 @@
    $controller_Operateur = new controller_Operateur() ; 
    $controller_auth_Operateur = new controller_auth_Operateur() ; 
    $controller_auth_Admin = new controller_auth_Admin() ; 
+   $Controller_reservation = new Controller_reservation() ; 
+   $controller_client = new controller_client() ; 
 
       if (isset($_GET["action"])) {
        $action = $_GET["action"] ; 
@@ -35,6 +39,15 @@
        switch ($action) {
         case "login_Operateur":
             $controller_auth_Operateur->affiche_form_Operateur() ; 
+            break;
+        case "buycard":
+            $controller_Homepage->affichebuycard() ; 
+            break;
+        case "addReservation":
+            $Controller_reservation->addReservation() ; 
+            break;
+        case "checkout":
+            $Controller_reservation->checkout() ; 
             break;
         case "SignOut":
             $controller_auth_Operateur->SignOut() ; 

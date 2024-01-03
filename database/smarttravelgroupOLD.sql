@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 03 jan. 2024 à 14:04
+-- Généré le : mar. 02 jan. 2024 à 09:41
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -61,9 +61,9 @@ INSERT INTO `bus` (`Numero_de_bus`, `busNumber`, `Plaque_immatriculation`, `Capa
 (18, 'BUS002', 'XYZ456', 40, 33),
 (22, 'BUS22', 'BUS002BUS002', 100, 33),
 (24, 'BUS003', 'BUS002BUS002', 1500, 35),
-(25, 'BUS0056', 'BUS002BUS002', 10, 36),
+(25, 'BUS0056', 'BUS002BUS002', 200, 36),
 (27, 'b300', '0415', 151, 33),
-(29, 'b20', '51515', 9, 35);
+(29, 'b20', '51515', 120, 35);
 
 -- --------------------------------------------------------
 
@@ -76,32 +76,8 @@ CREATE TABLE `client` (
   `password` varchar(255) DEFAULT NULL,
   `inactive` tinyint(1) DEFAULT 1,
   `date_created` datetime DEFAULT current_timestamp(),
-  `points` int(11) DEFAULT 0,
-  `is_client` int(255) NOT NULL DEFAULT 1
+  `points` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `client`
---
-
-INSERT INTO `client` (`email`, `password`, `inactive`, `date_created`, `points`, `is_client`) VALUES
-('cocg;qil.com', NULL, 1, '0000-00-00 00:00:00', 0, 0),
-('islam@gmail.com', '1', 1, '2024-01-02 14:02:04', 0, 1),
-('islsqdam@gmail.com', NULL, 1, '2024-01-03 10:21:11', 0, 0),
-('jijzd@gzhdjij', NULL, 1, NULL, 0, 0),
-('kamal@gmail.com', '1', 1, '2024-01-02 12:27:14', 0, 1),
-('kamalislam@gmail.com', NULL, 1, NULL, 0, 0),
-('yandbvfhejsmin@gmail.jcom', NULL, 1, '2024-01-03 12:27:33', 0, 0),
-('yasdmin@gmail.jcom', NULL, 1, '2024-01-03 12:07:25', 0, 0),
-('yashgjnmin@gmail.jcom', NULL, 1, '2024-01-03 11:27:23', 0, 0),
-('yasjhjhmin@gmail.jcom', NULL, 1, '2024-01-03 12:16:10', 0, 0),
-('yasjhuhguymin@gmail.jcom', NULL, 1, '2024-01-03 12:05:44', 0, 0),
-('yasmin@gmail.jcom', '12', 1, '2024-01-03 08:53:08', 0, 1),
-('yasmscsin@gmail.jcom', NULL, 1, '2024-01-03 11:24:52', 0, 0),
-('yasrzegtmin@gmail.jcom', NULL, 1, '2024-01-03 12:28:50', 0, 0),
-('yassssssmin@gmail.jcom', NULL, 1, '2024-01-03 12:08:34', 0, 0),
-('yknhjbygasmin@gmail.jcom', NULL, 1, '2024-01-03 12:03:54', 0, 0),
-('ysddsdasmin@gmail.jcom', NULL, 1, '2024-01-03 12:30:37', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -148,8 +124,12 @@ CREATE TABLE `horaire` (
 
 INSERT INTO `horaire` (`ID`, `Date`, `Heure_depart`, `Heure_arrivee`, `Sieges_disponibles`, `ID_Bus`, `ID_Route`, `price`) VALUES
 (16, '2023-12-28', '16:07:00', '20:07:00', 100, 18, 12, 150.00),
+(18, '2023-12-28', '19:01:00', '22:01:00', 200, 25, 12, 95.00),
+(19, '2023-12-28', '09:03:00', '13:03:00', 20, 25, 12, 166.00),
 (20, '2023-12-28', '13:03:00', '16:03:00', 20, 25, 12, 166.00),
-(25, '2023-12-31', '14:42:00', '16:42:00', 10, 25, 12, 150.00),
+(21, '2023-12-28', '09:01:00', '11:01:00', 200, 25, 12, 95.00),
+(22, '2023-12-28', '01:07:00', '05:07:00', 100, 18, 12, 150.00),
+(25, '2023-12-31', '14:42:00', '16:42:00', 10, 24, 12, 150.00),
 (26, '2023-12-31', '11:57:00', '17:57:00', 15, 29, 12, 150.00);
 
 -- --------------------------------------------------------
@@ -186,7 +166,8 @@ CREATE TABLE `operator` (
 INSERT INTO `operator` (`email`, `password`, `inactive`, `company_id`) VALUES
 ('yasm0251in@gmail.jcom', '2', 1, 33),
 ('yasmidn@gmail.jcom', '2', 1, 36),
-('yasmin@gmail.jcom', '1', 1, 35);
+('yasmin@gmail.jcom', '1', 1, 35),
+('yrthasmin@gmail.jcom', 'u', 1, 36);
 
 -- --------------------------------------------------------
 
@@ -200,19 +181,6 @@ CREATE TABLE `reservation` (
   `ID_Horaire` int(11) DEFAULT NULL,
   `number_seat` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `reservation`
---
-
-INSERT INTO `reservation` (`id`, `email_client`, `ID_Horaire`, `number_seat`) VALUES
-(8, 'kamalislam@gmail.com', 20, 3),
-(9, 'cocg;qil.com', 20, 8),
-(17, 'yassssssmin@gmail.jcom', 20, 9),
-(18, 'yasjhjhmin@gmail.jcom', 20, 6),
-(19, 'yandbvfhejsmin@gmail.jcom', 20, 2),
-(20, 'yasrzegtmin@gmail.jcom', 20, 4),
-(21, 'ysddsdasmin@gmail.jcom', 20, 7);
 
 -- --------------------------------------------------------
 
@@ -322,12 +290,6 @@ ALTER TABLE `company`
 --
 ALTER TABLE `horaire`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
---
--- AUTO_INCREMENT pour la table `reservation`
---
-ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `route`

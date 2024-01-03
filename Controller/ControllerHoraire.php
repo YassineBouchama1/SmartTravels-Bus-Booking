@@ -71,6 +71,16 @@ class controller_horaire {
        
    
     }
+    function controllergetByIdhoraire($id_card) {
+      
+        $Adminhoraire = new Adminhoraire() ; 
+
+        $data =   $Adminhoraire->getByIdhoraire2($id_card); 
+         
+          
+       return $data ;
+   
+    }
     
     function controller_submet_update()  {
         extract($_POST);

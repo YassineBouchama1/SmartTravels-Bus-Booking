@@ -29,6 +29,7 @@
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" rel="stylesheet">
 
+
 <style>
 	.chose {
   text-decoration: none;

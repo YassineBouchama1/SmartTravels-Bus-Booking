@@ -63,7 +63,7 @@ $Operateurr = "Operateur"; ?>
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label ">Capacite</label>
-                <input name="Capacite" required value="" placeholder="Capacite..." type="number" class="form-control " id="exampleFormControlInput1" >
+                <input oninput="this.value = Math.min(this.value, 60)" name="Capacite" required value="" placeholder="Capacite...MAX = 60" type="number" class="form-control " id="exampleFormControlInput1" >
               </div>
               <div class="col-lg-3 mb-4" style="display: none;">
               <label for="exampleFormControlTextarea1" class="form-label">Company</label>

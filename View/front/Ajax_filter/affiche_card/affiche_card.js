@@ -9,6 +9,7 @@ function getData(tableName) {
     myRequest.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             result = JSON.parse(this.responseText);
+            console.log(result)
 
         }
     }
@@ -24,7 +25,7 @@ function getData(tableName) {
         xhr.onload = function() {
           if (xhr.status >= 200 && xhr.status < 300) {
           const data = JSON.parse(xhr.responseText);
-            console.log(xhr.responseText)
+          
 
             // console.log( data)
          
@@ -114,7 +115,7 @@ if (Array.isArray(filteredProducts.data) && filteredProducts.data.length > 0) {
 
 
   const paginate_items = AllData.slice(start, end).map((elem) => {
-
+console.log(AllData)
    let Heure_arrivee = date(elem.Heure_arrivee) ;
    let  Heure_depart = date(elem.Heure_depart) ;
     return `     <div class="card mb-3">
@@ -144,7 +145,7 @@ if (Array.isArray(filteredProducts.data) && filteredProducts.data.length > 0) {
      <div style="font-size: 20px;" class="col-sm-12 ">${elem.price} MAD
      <h5 style="font-size: 10px;">par personne</h5>
     </div>
-    <a href="#" class="btn btn-primary col-sm-12 mt-4 text-center">Go somewhere</a>
+    <a href="index.php?action=buycard&id_card=${elem.ID}" class="btn btn-primary col-sm-12 mt-4 text-center">Go somewhere</a>
      </div>
     </div>
   </div>`;
@@ -198,7 +199,7 @@ function fetchData(minValue = 0 , maxValue = 0 , days) {
 
       const data = JSON.parse(xhr.responseText);
     //   const data = xhr.responseText;
-
+        // console.log(xhr.responseText)
       // Update filteredProducts with fetched data
     filteredProducts = data;
   //  console.log(filteredProducts) ;

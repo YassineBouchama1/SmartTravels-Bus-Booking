@@ -172,15 +172,20 @@ if (isset($_GET["action"])) {
         case "clinetPanel":
             $controller_auth_Client->affiche_Clinet_Panel();
             break;
-            case "changePassword":
-                $controller_auth_Client->controller_change_password();
-                break;
-                case "SignOutClient":
-                    $controller_auth_Client->SignOut();
-                    break;
-                    case "delete_reservation_clinet":
-                        $controller_auth_Client->delete_reservation();
-                        break;
+        case "changePassword":
+            $controller_auth_Client->controller_change_password();
+            break;
+        case "SignOutClient":
+            $controller_auth_Client->SignOut();
+            break;
+        case "delete_reservation_clinet":
+            $controller_auth_Client->delete_reservation();
+            break;
+        case "getPasswordClient":
+            $controller_auth_Client->controller_Get_Password();
+            break;
+
+
         default:
 
             break;

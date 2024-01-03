@@ -2,6 +2,7 @@
 
 include "Model\auth_model\model_auth_Client.php";
 
+
 class controller_auth_Client
 {
 
@@ -119,12 +120,7 @@ class controller_auth_Client
 
 
 
-    // dislay rest passowr from
 
-    function controller_Rest_Password()
-    {
-        include_once "View\auth\client_foget_password.php";
-    }
 
     function controller_change_password()
     {
@@ -205,5 +201,26 @@ class controller_auth_Client
             header("Location: index.php?action=clinetPanel&errorReservation=we cant reach to your email to delete reservation");
             exit();
         }
+    }
+
+
+    // dislay rest passowr from
+
+    function controller_Rest_Password()
+    {
+
+
+        include_once "View\auth\client_foget_password.php";
+    }
+
+    // get password from email to send it to email
+
+    function controller_Get_Password()
+    {
+
+        extract($_POST);
+        $model_auth_Client = new model_auth_Client();
+        $clinetData =   $model_auth_Client->get_user_info($email);
+        echo json_encode($clinetData);
     }
 }

@@ -26,6 +26,7 @@ class Controller_reservation{
 
        
         if (count($array) >=  $Capacite["Capacite"] ) {
+         
             $content = "is full" ; 
             $recipient_id = $Capacite["Company_id"] ; 
             $recipient_type = "admin" ; 
@@ -34,13 +35,29 @@ class Controller_reservation{
             $reservation =   $Controller_notification->create_notification($content,$recipient_id,$recipient_type) ; 
              
         }else {
+
+            $AdminClient = new AdminClient() ; 
+            $clients =   $AdminClient->getByemailClient($emailClient) ; 
+          
+
+          if ( $clients === false) {
+          
+            $Adminclient = new Adminclient();
+            $Adminclient->InsertClient($emailClient, null, 1, 0, 0);
+          }
+              
+             
+           
+             
+         
                 
-        $Adminclient = new Adminclient() ; 
-        $Adminclient->InsertClient($emailClient,null,1,0,0) ;
+      
            
         $Adminreservation = new Adminreservation() ; 
         $Adminreservation->Insertreservation($emailClient,$trip_Id,$number_seat) ; 
-        $content = "one orderé" ; 
+
+      
+         $content = "one order by " ." $emailClient" . "   seat : " . $number_seat;
         $recipient_id = $Capacite["Company_id"] ; 
         $recipient_type = "operator" ; 
       

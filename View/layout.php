@@ -1,6 +1,7 @@
 
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,85 +16,88 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="public/css/bootstrap.min.css">
-  <link rel="stylesheet" href="public/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="public/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="public/css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="public/fonts/icomoon/style.css">
-  <link rel="stylesheet" href="public/fonts/flaticon/font/flaticon.css">
-  <link rel="stylesheet" href="public/css/daterangepicker.css">
-  <link rel="stylesheet" href="public/css/aos.css">
-  <link rel="stylesheet" href="public/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylesheet" href="public/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="public/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="public/css/jquery.fancybox.min.css">
+	<link rel="stylesheet" href="public/fonts/icomoon/style.css">
+	<link rel="stylesheet" href="public/fonts/flaticon/font/flaticon.css">
+	<link rel="stylesheet" href="public/css/daterangepicker.css">
+	<link rel="stylesheet" href="public/css/aos.css">
+	<link rel="stylesheet" href="public/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" rel="stylesheet">
 
 
-<style>
-	.chose {
-  text-decoration: none;
-  padding: 30px;
-  color: #f9f9f9;
-  border-radius: 25px;
-  
-}
-.chose:hover{
- 
-  background-color: #8e8a8a47;
- 
-}
-.active{
-  background-color: #8e8a8a47;
+	<style>
+		.chose {
+			text-decoration: none;
+			padding: 30px;
+			color: #f9f9f9;
+			border-radius: 25px;
 
-}
-/* .width{
+		}
+
+		.chose:hover {
+
+			background-color: #8e8a8a47;
+
+		}
+
+		.active {
+			background-color: #8e8a8a47;
+
+		}
+
+		/* .width{
   width: 21% !important;
 } */
 
 
-.label_file {
-	display: block;
-	width: 60vw;
-	max-width: 300px;
+		.label_file {
+			display: block;
+			width: 60vw;
+			max-width: 300px;
 
-	background-color: slateblue;
-	border-radius: 2px;
-	font-size: 1em;
-	line-height: 2.5em;
-	text-align: center;
-}
+			background-color: slateblue;
+			border-radius: 2px;
+			font-size: 1em;
+			line-height: 2.5em;
+			text-align: center;
+		}
 
-.label_file:hover {
-	background-color: cornflowerblue;
-}
+		.label_file:hover {
+			background-color: cornflowerblue;
+		}
 
-.label_file:active {
-	background-color: mediumaquamarine;
-}
+		.label_file:active {
+			background-color: mediumaquamarine;
+		}
 
-#apply {
-	border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    height: 1px; 
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
-.img{
-  width: 450px !important;
-  height: 250px !important;
-}
+		#apply {
+			border: 0;
+			clip: rect(1px, 1px, 1px, 1px);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute;
+			width: 1px;
+		}
 
-</style>
+		.img {
+			width: 450px !important;
+			height: 250px !important;
+		}
+	</style>
 
 	<title>SmartTravel</title>
 </head>
 
 <body>
-<div class="site-mobile-menu site-navbar-target">
+	<div class="site-mobile-menu site-navbar-target">
 		<div class="site-mobile-menu-header">
 			<div class="site-mobile-menu-close">
 				<span class="icofont-close js-menu-toggle"></span>
@@ -108,33 +112,53 @@
 				<a href="index.php" class="logo m-0">SmartTravel</a>
 
 				<ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
-					<li ><a href="index.php">Home</a></li>
-					
-					<?php 
-					if (isset($_SESSION["Operateur"]) ) { 	 ?>
+					<li><a href="index.php">Home</a></li>
 
-						<li ><a href="index.php?action=SignOut">sign out Operateur</a></li>
-						<li ><a href="index.php?action=SignOut">sign out Operateur</a></li>
+					<?php
+					if (isset($_SESSION["Operateur"])) { 	 ?>
+
+						<li><a href="index.php?action=SignOut">sign out Operateur</a></li>
+
+						<li>
+							<div class="dropdown">
+								<sub data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-bell"></i></sub>
+								<span id="noti_number">0</span>
+								<ul style="height: 300px;" class="dropdown-menu dropdown-menu-dark custom-notifications overflow-scroll">
+									<!-- Notifications will be dynamically added here -->
+								</ul>
+							</div>
+						</li>
+
+					<?php } ?>
+					<?php
+					if (isset($_SESSION["Admin"]) && isset($admin)) { 	 ?>
+
+						<li><a href="index.php?action=SignOut_admin">sign out admin</a></li>
 
 
 					<?php } ?>
-					<?php 
-					if (isset( $_SESSION["Admin"]) && isset($admin)) { 	 ?>
+					<?php
+					if (isset($_SESSION["Admin"]) && isset($Operateurr)) { 	 ?>
 
-						<li ><a href="index.php?action=SignOut_admin">sign out admin</a></li>
-
-
-					<?php } ?>
-					<?php 
-					if (isset( $_SESSION["Admin"]) && isset($Operateurr)) { 	 ?>
-
-						<li ><a href="index.php?action=Operateur">admin</a></li>
+						<li><a href="index.php?action=Operateur">admin</a></li>
 
 
 					<?php } ?>
-						
-				
-				
+					<?php
+					if (!isset($_SESSION["Admin"]) && !isset($Operateurr) && isset($_SESSION["Client"])) { 	 ?>
+
+						<li><a href="index.php?action=clinetPanel">Profile</a></li>
+
+
+					<?php } else {
+					?>
+						<li><a href="index.php?action=loginClient">Login</a></li>
+					<?php
+					}
+
+					?>
+
+
 				</ul>
 
 				<a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
@@ -146,13 +170,13 @@
 	</nav>
 
 
-<?=  $contant ?>
+	<?= $contant ?>
 
 
 
 
 
-<div class="site-footer">
+	<div class="site-footer">
 		<div class="inner first">
 			<div class="container">
 				<div class="row">
@@ -217,7 +241,7 @@
 						<p>Copyright
 						</p>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
@@ -230,16 +254,70 @@
 		</div>
 	</div>
 
+	<script>
+		function formatDate(date) {
+			const currentDate = new Date();
+			const yourDate = new Date(date);
+			const difference = currentDate.getTime() - yourDate.getTime();
+
+			const daysDifference = Math.floor(difference / (1000 * 60 * 60 * 24));
+			const hoursDifference = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const minutesDifference = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+			if (difference < 1000) {
+				return "Just now";
+			} else if (daysDifference > 0) {
+				return daysDifference + " days ago";
+			} else if (hoursDifference > 0) {
+				return hoursDifference + " hours ago";
+			} else if (minutesDifference > 0) {
+				return minutesDifference + " minutes ago";
+			} else {
+				return "Just now";
+			}
+		}
+		let numberNotif = document.getElementById("noti_number")
+		let notificationsList = document.querySelector(".custom-notifications");
+
+		function updateNotifications() {
+			const xhttp = new XMLHttpRequest();
+			xhttp.open("GET", "view/AjaxNotification.php", true);
+
+			xhttp.onreadystatechange = function() {
+				if (this.readyState === 4 && this.status === 200) {
+					var response = JSON.parse(this.responseText);
+					numberNotif.textContent = response.num_rows;
+					console.log(response.num_rows);
+
+					notificationsList.innerHTML = '';
+
+					response.data.forEach(element => {
+						const listItem = document.createElement('li');
+						listItem.innerHTML = `<hr class="dropdown-divider">
+                    <a class="dropdown-item" href="#">${element.content}</a>
+                    <a class="dropdown-item" href="#">${formatDate(element.time_created)}</a>`;
+
+						notificationsList.appendChild(listItem);
+					});
+
+				}
+			};
+			xhttp.send();
+		}
+
+		updateNotifications();
+
+		setInterval(updateNotifications, 1000);
+	</script>
 
 
-<!-- Include jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Include jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Include Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<!-- Include Bootstrap Slider JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"></script>
-	
+	<!-- Include Bootstrap JS -->
+	<!-- Include Bootstrap Slider JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"></script>
+
 
 	<script src="public/js/jquery-3.4.1.min.js"></script>
 	<script src="public/js/popper.min.js"></script>
@@ -251,63 +329,59 @@
 	<script src="public/js/aos.js"></script>
 	<script src="public/js/moment.min.js"></script>
 	<script src="public/js/daterangepicker.js"></script>
-	
+
 
 	<script src="public/js/typed.js"></script>
 
-  
-	
+
+
 
 	<script>
 		function ncityValueame(cityValue) {
-						// Create a new XMLHttpRequest object
+			// Create a new XMLHttpRequest object
 
-						var xhttp = new XMLHttpRequest();
+			var xhttp = new XMLHttpRequest();
 
-						// Define a function to handle the response
-						xhttp.onreadystatechange = function() {
-						if (this.readyState == 4 && this.status == 200) {
-							// console.log(this.responseText); 
-							var selectElement  =  document.getElementById("select_city") ;
-							selectElement.innerHTML = this.responseText
-						}
-						};
+			// Define a function to handle the response
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					// console.log(this.responseText); 
+					var selectElement = document.getElementById("select_city");
+					selectElement.innerHTML = this.responseText
+				}
+			};
 
-						// Open a connection to the server
-						xhttp.open("GET", "View/front/Ajax_filter/cityValue.php?cityValue=" + cityValue, true);
+			// Open a connection to the server
+			xhttp.open("GET", "View/front/Ajax_filter/cityValue.php?cityValue=" + cityValue, true);
 
-						// Send the request to the server
-						xhttp.send();
+			// Send the request to the server
+			xhttp.send();
 		}
 	</script>
 
+
 	<script>
-    // JavaScript code to capture the selected value
-    document.getElementById('cityDropdown').addEventListener('change', function() {
-        var cityValue = this.value;
-        console.log('Selected value:', cityValue);
-		ncityValueame(cityValue);
-	
-
-    });
+		// JavaScript code to capture the selected value
+		document.getElementById('cityDropdown').addEventListener('change', function() {
+			var cityValue = this.value;
+			console.log('Selected value:', cityValue);
+			ncityValueame(cityValue);
 
 
-</script>
+		});
+	</script>
 	<script>
-			
-
-
 		$(function() {
-			
+
 			var slides = $('.slides'),
-			images = slides.find('img');
+				images = slides.find('img');
 
 			images.each(function(i) {
 				$(this).attr('data-id', i + 1);
 			})
 
 			var typed = new Typed('.typed-words', {
-				strings: ["Safi.","Rabat .", " Tanger.", " Agadir."],
+				strings: ["Safi.", "Rabat .", " Tanger.", " Agadir."],
 				typeSpeed: 80,
 				backSpeed: 80,
 				backDelay: 2000,
@@ -316,27 +390,23 @@
 				showCursor: true,
 				preStringTyped: (arrayPos, self) => {
 					arrayPos++;
-					
+
 					$('.slides img').removeClass('active');
-					$('.slides img[data-id="'+arrayPos+'"]').addClass('active');
+					$('.slides img[data-id="' + arrayPos + '"]').addClass('active');
 				}
 
 			});
 
 
 		});
-		
-
-
-
-
 	</script>
+
 
 	<script src="public/js/custom.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-	
 
 
+	<script src="https://kit.fontawesome.com/e9ea9ee727.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

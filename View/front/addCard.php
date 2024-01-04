@@ -1,6 +1,7 @@
 <?php
-session_start();
 ob_start(); 
+
+
 ?>
 
 <?php
@@ -10,6 +11,13 @@ $array = array();
 foreach ($reservation as  $value) {
     $array[] = $value["number_seat"];
 }
+
+
+
+?>
+<?php
+ 
+
 
 ?>
 
@@ -53,7 +61,7 @@ foreach ($reservation as  $value) {
             <div class="">
                 <label for="email" class="mt-4 mb-2 block text-sm font-medium">Email</label>
                 <div class="relative">
-                    <input type="text" id="inputEmail" name="email" class="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="your.email@gmail.com" />
+                <input value="<?php echo (isset($_SESSION["emailClient"])) ? $_SESSION["emailClient"] : ""; ?>" type="text" id="inputEmail" name="email" class="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="your.email@gmail.com" />
                     <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
@@ -93,7 +101,7 @@ foreach ($reservation as  $value) {
 
             // let numberOfSeats = 20;
             let numberOfSeats = <?php echo $CapaciteBus["Capacite"] ?>;;
-
+console.log(numberOfSeats )
             let unavailableSeats = <?php echo json_encode($array); ?>;
 
             // let unavailableSeats = [2, 10];
@@ -144,7 +152,7 @@ foreach ($reservation as  $value) {
             submitBtn.addEventListener('click', async function() {
 
 
-                let email = <?php echo isset($_SESSION['emailClient']) ? $_SESSION['emailClient'] : 'document.getElementById("inputEmail").value'; ?>;
+                let email = '<?php echo isset($_SESSION['emailClient']) ? $_SESSION['emailClient'] : 'document.getElementById("inputEmail").value'; ?>';
 
                 console.log(email)
                 if (selectedSeat != null && email) {

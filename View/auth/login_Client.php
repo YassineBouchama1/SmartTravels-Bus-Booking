@@ -42,6 +42,8 @@
         <div class="col gap-3">
             <button name="submit" type="submit" class="btn btn-primary">Submit</button>
             <a href="./index.php?action=clientRestPassword">Forgot password?</a>
+            <a href="./index.php?action=registerClient">Not registered yet??</a>
+
         </div>
     </form>
 

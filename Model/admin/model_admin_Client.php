@@ -34,11 +34,18 @@ class AdminClient extends Database {
         /* Fetch all of the remaining rows in the result set */
         $resultados = $consulta->fetch();
 
+        if (empty($resultados)) {
+           
+            return false ;
+        }else {
+            
+       
         $Client = array(); 
      
         $Client[] = new Client($resultados["email"],$resultados["password"],$resultados["inactive"], $resultados["date_created"], $resultados["points"], $resultados["is_client"]);
       
-        return $Client;
+        return $Client; }
+
     }
     
     public function getByColumnClient($column,$value){

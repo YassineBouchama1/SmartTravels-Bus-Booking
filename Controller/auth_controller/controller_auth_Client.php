@@ -14,7 +14,7 @@ class controller_auth_Client
         if (!empty($_SESSION["emailClient"])) {
             header("Location: index.php?action=clinetPanel");
         } else {
-            include_once "View\auth\register_Client.php";
+            include_once "View\auth/register_Client.php";
         }
     }
 
@@ -78,8 +78,8 @@ class controller_auth_Client
 
         // if client login successfully
         if ($clientIsExist) {
-            session_start();
-
+            session_destroy();
+            echo "<script>localStorage.setItem('emailClient', '$Email');</script>";
             $_SESSION["Client"] = "Client";
             $_SESSION["emailClient"] = $Email;
             header("Location: index.php?action=clinetPanel");
@@ -95,7 +95,7 @@ class controller_auth_Client
     //display page client panel
     function   affiche_Clinet_Panel()
     {
-        session_start();
+
 
 
         if (!empty($_SESSION["emailClient"])) {
@@ -159,7 +159,7 @@ class controller_auth_Client
 
     function SignOut()
     {
-        session_start();
+
 
         session_destroy();
         header("Location: index.php?action=loginClient");

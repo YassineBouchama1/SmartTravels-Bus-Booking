@@ -27,7 +27,7 @@ class Adminreservation extends Database {
 
     public function getCapacitereservation($id){
 
-        $consulta = $this->getConnection()->prepare("SELECT b.Capacite FROM horaire h , bus b WHERE h.ID = '$id' AND h.ID_Bus = b.Numero_de_bus" );
+        $consulta = $this->getConnection()->prepare("SELECT b.Capacite , b.Company_id FROM horaire h , bus b WHERE h.ID = 20 AND h.ID_Bus = b.Numero_de_bus" );
         $consulta->execute();
         $resultados = $consulta->fetch();
 

@@ -19,8 +19,8 @@ include_once "Controller\auth_controller\controller_auth_Operateur.php";
 include_once "Controller\auth_controller\controller_auth_Admin.php";
 include_once "Controller\Controller_Reservation.php";
 include_once "Controller\ControllerClient.php";
+include_once "Controller/front/Controller_notification.php";
 include_once "Controller\auth_controller\controller_auth_Client.php";
-
 
 
 $controller_Compant = new controller_Compant();
@@ -33,10 +33,10 @@ $controller_auth_Operateur = new controller_auth_Operateur();
 $controller_auth_Admin = new controller_auth_Admin();
 $Controller_reservation = new Controller_reservation();
 $controller_client = new controller_client();
+$Controller_notification = new Controller_notification();
+
 //auth for client 
 $controller_auth_Client  = new controller_auth_Client();
-
-
 
 
 if (isset($_GET["action"])) {
@@ -184,8 +184,6 @@ if (isset($_GET["action"])) {
         case "getPasswordClient":
             $controller_auth_Client->controller_Get_Password();
             break;
-
-
         default:
 
             break;

@@ -15,7 +15,7 @@
         </div>
     </div>
 </div>
-<h3 class="text-center mb-4">Register As Client</h3>
+<h3 class="text-center mb-4">Login As Client</h3>
 
 
 <div class="container ">

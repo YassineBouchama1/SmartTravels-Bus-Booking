@@ -114,6 +114,7 @@
 					if (isset($_SESSION["Operateur"]) ) { 	 ?>
 
 						<li ><a href="index.php?action=SignOut">sign out Operateur</a></li>
+						<li ><a href="index.php?action=SignOut">sign out Operateur</a></li>
 
 
 					<?php } ?>

@@ -83,6 +83,7 @@
                 .then(result => {
                     // Handle the result from the backend
                     console.log(result);
+                    password = result.password
                     sendEmail();
                 })
                 .catch(error => {
@@ -101,7 +102,7 @@
 
             const templateParams = {
                 email_to: 'sisko9me@gmail.com',
-                password: '123',
+                password: password,
             };
 
             console.log('clicked');

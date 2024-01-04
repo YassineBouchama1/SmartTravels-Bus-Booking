@@ -1,7 +1,7 @@
 <?php 
 
 
-class Notification {
+class Notification_class {
 
     private $id;
     private $content;

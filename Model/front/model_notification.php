@@ -8,134 +8,135 @@ include_once "Model\admin_class\class_notification.php" ;
 
 
 
-class Adminreservation extends Database {
+class notification extends Database {
 
 
-    public function getAllreservation(){
+    public function getAllnotification(){
 
-        $consulta = $this->getConnection()->prepare("SELECT * FROM  reservation" );
+        $consulta = $this->getConnection()->prepare("SELECT * FROM  notification" );
         $consulta->execute();
         $resultados = $consulta->fetchAll();
 
-        $reservation = array(); 
+        $notification = array(); 
         foreach ($resultados as $B) {
-            $reservation[] = new admin_Reservation($B["id"],$B["email_client"],$B["ID_Horaire"], $B["number_seat"]);
+            $notification[] = new Notification_class($B["id"],$B["content"],$B["recipient_id"], $B["recipient_type"]);
         }
-        return $reservation;
+        return $notification;
        
     }
 
-    public function getCapacitereservation($id){
 
-        $consulta = $this->getConnection()->prepare("SELECT b.Capacite FROM horaire h , bus b WHERE h.ID = '$id' AND h.ID_Bus = b.Numero_de_bus" );
-        $consulta->execute();
-        $resultados = $consulta->fetch();
-
-     
-        return $resultados;
-       
-    }
 
     
-    public function getByIdreservation($id){
+    public function getByIdnotification($id){
         $consulta = $this->getConnection()->prepare("SELECT * 
-                                                FROM reservation  WHERE id = :id");
+                                                FROM notification  WHERE id = :id");
         $consulta->execute(array(
             "id" => $id
         ));
         /* Fetch all of the remaining rows in the result set */
         $resultados = $consulta->fetch();
 
-        $reservation = array(); 
+        $notification = array(); 
      
-            $reservation[] = new admin_Reservation($resultados["id"],$resultados["email_client"],$resultados["ID_Horaire"], $resultados["number_seat"]);
+        $notification[] = new Notification_class($resultados["id"],$resultados["content"],$resultados["recipient_id"], $resultados["recipient_type"]);
       
-        return $reservation;
+        return $notification;
     }
     
-    public function getByColumnreservation($column,$value){
+    public function getByColumnnotification($column,$value){
         $consulta = $this->getConnection()->prepare("SELECT * 
-                                                FROM reservation WHERE " . $column . " = :value");
+                                                FROM notification WHERE " . $column . " = :value");
         $consulta->execute(array(
             "value" => $value
         ));
         $resultados = $consulta->fetch();
        
-        $reservation = array(); 
+        $notification = array(); 
 
      
-        $reservation[] = new admin_Reservation($resultados["id"],$resultados["email_client"],$resultados["ID_Horaire"], $resultados["number_seat"]);
+        $notification[] = new Notification_class($resultados["id"],$resultados["content"],$resultados["recipient_id"], $resultados["recipient_type"]);
   
-    return $reservation;
+    return $notification;
     }
-    
-    public function deleteByIdreservation($id){
+
+    public function insertNotification($content, $recipient_id, $recipient_type) {
         try {
-            $consulta = $this->getConnection()->prepare("DELETE FROM reservation WHERE id = :id");
-            $consulta->execute(array(
-                "id" => $id
-            ));
-           
-        } catch (Exception $e) {
-            echo 'Falló el DELETE (deleteById): ' . $e->getMessage();
-            return -1;
-        }
-    }
-    
-    public function deleteByColumnreservation($column,$value){
-        try {
-            $consulta = $this->getConnection()->prepare("DELETE FROM reservation WHERE :column = :value");
-            $consulta->execute(array(
-                "column" => $value,
-                "value" => $value,
-            ));
-           
-        } catch (Exception $e) {
-            echo 'Falló el DELETE (deleteBy): ' . $e->getMessage();
-            return -1;
-        }
-    }
-
-
-    public function Insertreservation($email_client,$ID_Horaire,$number_seat){
-
-        $consulta = $this->getConnection()->prepare("INSERT INTO reservation(email_client,ID_Horaire,number_seat)
-                                        VALUES (:email_client,:ID_Horaire,:number_seat)");
-        $result = $consulta->execute(array(
-            "email_client" => $email_client,
-            "ID_Horaire" => $ID_Horaire,
-            "number_seat" => $number_seat
-          
-        ));
-
-        return $result; 
-    }
-
-    public function Updatereservation($id, $email_client, $ID_Horaire, $number_seat) {
-        try {
-            $consulta = $this->getConnection()->prepare("
-                UPDATE reservation 
-                SET 
-                    email_client = :email_client,  
-                    ID_Horaire = :ID_Horaire,
-                    number_seat = :number_seat
-                WHERE id = :id 
-            ");
-    
-            $resultado = $consulta->execute(array(
-                "email_client" => $email_client,
-                "ID_Horaire" => $ID_Horaire,
-                "number_seat" => $number_seat,
-                "id" => $id
+            $consulta = $this->getConnection()->prepare("INSERT INTO notification(content, recipient_id, recipient_type)
+                                                        VALUES (:content, :recipient_id, :recipient_type)");
+            $result = $consulta->execute(array(
+                "content" => $content,
+                "recipient_id" => $recipient_id,
+                "recipient_type" => $recipient_type
             ));
     
-            return $resultado;
+            if ($result) {
+                return true; // Successful insertion
+            } else {
+                return false; // Failed insertion
+            }
         } catch (PDOException $e) {
-            // Handle database errors
-            // Log or return an error message
+            // Handle any database errors
             return false;
         }
     }
+    
+    
+    // public function deleteByIdnotification($id){
+    //     try {
+    //         $consulta = $this->getConnection()->prepare("DELETE FROM notification WHERE id = :id");
+    //         $consulta->execute(array(
+    //             "id" => $id
+    //         ));
+           
+    //     } catch (Exception $e) {
+    //         echo 'Falló el DELETE (deleteById): ' . $e->getMessage();
+    //         return -1;
+    //     }
+    // }
+    
+    // public function deleteByColumnnotification($column,$value){
+    //     try {
+    //         $consulta = $this->getConnection()->prepare("DELETE FROM notification WHERE :column = :value");
+    //         $consulta->execute(array(
+    //             "column" => $value,
+    //             "value" => $value,
+    //         ));
+           
+    //     } catch (Exception $e) {
+    //         echo 'Falló el DELETE (deleteBy): ' . $e->getMessage();
+    //         return -1;
+    //     }
+    // }
+
+
+
+
+    // public function Updatenotification($id, $content, $recipient_id, $recipient_type) {
+    //     try {
+    //         $consulta = $this->getConnection()->prepare("
+    //             UPDATE notification 
+    //             SET 
+    //                 content = :content,  
+    //                 recipient_id = :recipient_id,
+    //                 recipient_type = :recipient_type
+    //             WHERE id = :id 
+    //         ");
+    
+    //         $resultado = $consulta->execute(array(
+    //             "content" => $content,
+    //             "recipient_id" => $recipient_id,
+    //             "recipient_type" => $recipient_type,
+    //             "id" => $id
+    //         ));
+    
+    //         return $resultado;
+    //     } catch (PDOException $e) {
+    //         // Handle database errors
+    //         // Log or return an error message
+    //         return false;
+    //     }
+    // }
     
 
 

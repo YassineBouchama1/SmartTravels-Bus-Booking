@@ -1,9 +1,15 @@
 <?php
 include_once 'Model\front\model_Reservation.php' ; 
+include_once 'Model\admin\model_admin _reservation.php';
 
 class Controller_reservation{
 
-
+    function displayReservation(){
+        if (isset($_SESSION["emailOperateur"])) {
+            $reservationInstance = new Reservation();
+            $reservations = $reservationInstance->getReservationsByOperator($_SESSION["Operateur"]);
+        }
+    }
 
     function addReservation() {
         extract($_GET) ; 

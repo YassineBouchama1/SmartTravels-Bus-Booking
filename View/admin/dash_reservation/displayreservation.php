@@ -44,44 +44,48 @@ $Operateurr = "Operateur";  ?>
 
          
 
-         <a class="mb-5 chose active"  href="index.php?action=Horaire" >Ajouter Un Horaire</a>
+         <a class="mb-5 chose "  href="index.php?action=Horaire" >Ajouter Un Horaire</a>
+         
+         <a class="mb-5 chose active"  href="index.php?action=ReservationDisplay" >Reservation</a>
 
-       
+         <?php
+            
+            echo "<pre>";
+            print_r($reservations);
+            echo "</pre>";?>
      
             <div class="row">
             <div class="col-12 col-sm-12  p-5 text-light text-center table-responsive">
             <label for="" class="form-label mb-4 ">Liste des Horaire : </label>
+     
             <table class="table table-striped table-hover " >
                 <thead >
                     <tr>
-                    <th  scope="col">id</th>
+                    <th  scope="col">bus number</th>
                     <th  scope="col">email_client</th>
                     <th  scope="col">horaire</th>
+                    <th  scope="col">date</th>
                     <th  scope="col">seat number</th>
                     <th  scope="col">Opérations</th>
                     </tr>
                 </thead>
            
                 <tbody class="table-group-divider">
-            
-
-                <?php foreach ($reservations as $reservation) { ?>
-    <tr>
-        <td><?= $reservation->getID() ?></td>
-        <td><?= $reservation->getClientEmail() ?></td>
-        <td><?= $reservation->getHoraire()["Date"] ?></td>
-        <td><?= $reservation->getHoraire()["Heure_depart"] ?></td>
-        <td><?= $reservation->getBus()["busNumber"] ?></td>
-        <td><?= $reservation->getNumberSeat() ?></td>
-                  
-                   
-        <a class="btn btn-danger mb-2 ms-2 delete-btn" data-bs-id="<?= $reservation->getID() ?>" data-bs-name="this reservation" href="#">delete</a>
-
-                    </td>
-                    </tr>
-               
-              <?php } ?>
-              
+                <?php 
+           
+                foreach ($reservations as $result) : ?>
+                    <tr>
+                        <td><?= $result['Numero_de_bus'] ?></td>
+                        <td><?= $result['email_client'] ?></td>
+                        <td><?= $result['departure_time'] ?></td>
+                        <td><?= $result['date'] ?></td>
+                        <td><?= $result['number_seat'] ?></td>
+                        
+                        <td>
+                        <a href="index.php?action=deleteres&id=<?= $result['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to CANCEL this reservation?')">CANCEL</a>
+                </td>
+                        <?php endforeach; ?>
+                </tr>
                 </tbody> 
                 </table>
                 <div id="rebons"></div>
@@ -95,7 +99,7 @@ $Operateurr = "Operateur";  ?>
 </div>
 	
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content">
       <div class="modal-header">
@@ -105,17 +109,17 @@ $Operateurr = "Operateur";  ?>
         
        
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer"> -->
 
-        
+<!--         
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 	
-<script>
+<!-- <script>
     // JavaScript to handle modal trigger click event and set the modal target dynamically
     const modalTriggers = document.querySelectorAll('.modal-trigger');
     modalTriggers.forEach((trigger) => {
@@ -140,7 +144,7 @@ $Operateurr = "Operateur";  ?>
         });
     });
 
-</script>
+</script> -->
 
     <?php $contant =  ob_get_clean();
     include_once "View\layout.php" ; 

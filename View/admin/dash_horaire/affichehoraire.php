@@ -46,7 +46,7 @@ $Operateurr = "Operateur";  ?>
 
          <a class="mb-5 chose active"  href="index.php?action=Horaire" >Ajouter Un Horaire</a>
 
-         <a class="mb-5 chose active"  href="index.php?action=Reservation" >Reservations</a>
+         <a class="mb-5 chose active"  href="index.php?action=ReservationDisplay" >Reservation</a>
      
 
      

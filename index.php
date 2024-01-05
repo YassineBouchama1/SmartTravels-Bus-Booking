@@ -192,6 +192,9 @@ if (isset($_GET["action"])) {
             case "ReservationDisplay":
                 $Controller_reservation->displayReservation();
                 break;
+                case "deleteres":
+                    $Controller_reservation->deleteReservation();
+                    break;  
         default:
 
             break;

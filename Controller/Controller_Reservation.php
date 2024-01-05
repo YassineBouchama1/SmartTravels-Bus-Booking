@@ -7,8 +7,21 @@ class Controller_reservation{
     function displayReservation(){
         if (isset($_SESSION["emailOperateur"])) {
             $reservationInstance = new Reservation();
-            $reservations = $reservationInstance->getReservationsByOperator($_SESSION["Operateur"]);
+            $reservations = $reservationInstance->getReservationsByOperator($_SESSION["emailOperateur"]);
+
+     
+
+            include "View\admin\dash_reservation\displayreservation.php";
         }
+    }
+    function deleteReservation()
+    {
+        $id = $_GET['id'];
+       
+       
+        $Reservation = new Adminreservation();
+        $Reservation->deleteByIdreservation($id);
+        header("Location: index.php?action=ReservationDisplay");
     }
 
     function addReservation() {

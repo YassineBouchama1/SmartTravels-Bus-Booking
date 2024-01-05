@@ -151,10 +151,9 @@ console.log(numberOfSeats )
             let submitBtn = document.getElementById('submitBtn')
             submitBtn.addEventListener('click', async function() {
 
-                let email = <?php echo isset($_SESSION['emailClient']) ? $_SESSION['emailClient'] : "" ?>;
-
-email = document.getElementById('inputEmail').value;
-
+                let email = `<?php echo isset($_SESSION['emailClient']) ? $_SESSION['emailClient'] : "" ?>`;
+                
+                email = document.getElementById('inputEmail').value;
                 console.log(email)
                 if (selectedSeat != null && email) {
 

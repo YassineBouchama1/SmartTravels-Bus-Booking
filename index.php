@@ -5,6 +5,7 @@ include "Model\admin_class\class_admin_Company.php";
 include "Model\admin_class\class_admin_Horaire.php";
 include_once "Model\admin_class\class_admin_route.php";
 include_once "Model\admin_class\class_admin_Operateur.php";
+include_once "Model\admin\model_admin _reservation.php";
 
 
 
@@ -24,6 +25,7 @@ include_once "Controller/front/Controller_notification.php";
 include_once "Controller\auth_controller\controller_auth_Client.php";
 
 
+
 $controller_Compant = new controller_Compant();
 $controller_Bus = new controller_Bus();
 $controller_Homepage = new Controller_homepage();
@@ -34,6 +36,7 @@ $controller_auth_Operateur = new controller_auth_Operateur();
 $controller_auth_Admin = new controller_auth_Admin();
 $Controller_reservation = new Controller_reservation();
 $controller_client = new controller_client();
+
 
 
 //auth for client 
@@ -186,6 +189,12 @@ if (isset($_GET["action"])) {
         case "getPasswordClient":
             $controller_auth_Client->controller_Get_Password();
             break;
+            case "ReservationDisplay":
+                $Controller_reservation->displayReservation();
+                break;
+                case "deleteres":
+                    $Controller_reservation->deleteReservation();
+                    break;  
         default:
 
             break;

@@ -145,12 +145,12 @@
 
 					<?php } ?>
 					<?php
-					if (!isset($_SESSION["Admin"]) && !isset($Operateurr) && isset($_SESSION["Client"])) { 	 ?>
+					if (!isset($_SESSION["Admin"]) && !isset($_SESSION["Operateur"]) && isset($_SESSION["Client"])) { 	 ?>
 
 						<li><a href="index.php?action=clinetPanel">Profile</a></li>
 
 
-					<?php } else {
+					<?php } if(!isset($_SESSION["Client"]) && !isset($_SESSION["Admin"]) && !isset($_SESSION["Operateur"])) {
 					?>
 						<li><a href="index.php?action=loginClient">Login</a></li>
 					<?php

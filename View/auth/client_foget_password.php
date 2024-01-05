@@ -82,7 +82,6 @@
                 .then(response => response.json())
                 .then(result => {
                     // Handle the result from the backend
-
                     console.log(result);
                     password = result.password
                     sendEmail();
@@ -102,7 +101,7 @@
             })();
 
             const templateParams = {
-                email_to: 'sisko9me@gmail.com',
+                email_to: email,
                 password: password,
             };
 

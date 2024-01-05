@@ -39,7 +39,9 @@ class controller_auth_Operateur
 
 
         if ($authenticated) {
+
             session_destroy();
+            session_start();
             $_SESSION["Operateur"] = "Operateur";
             $_SESSION["emailOperateur"] = $Email;
 

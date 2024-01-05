@@ -82,6 +82,7 @@
                 .then(response => response.json())
                 .then(result => {
                     // Handle the result from the backend
+
                     console.log(result);
                     password = result.password
                     sendEmail();

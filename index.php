@@ -115,7 +115,7 @@ if (isset($_GET["action"])) {
             break;
         case "affichBus":
             $controller_Bus->controller_select();
-            $Controller_notification->affichenotification();
+            // $Controller_notification->affichenotification();
             break;
         case "CreateBus":
             $controller_Bus->controller_Bus_insert();

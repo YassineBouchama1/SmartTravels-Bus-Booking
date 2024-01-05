@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : mer. 03 jan. 2024 à 14:04
--- Version du serveur : 10.4.28-MariaDB
--- Version de PHP : 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Jan 05, 2024 at 11:34 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `smarttravelgroup`
+-- Database: `smarttravelgroup`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -33,7 +33,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`email`, `password`) VALUES
@@ -42,7 +42,7 @@ INSERT INTO `admin` (`email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `bus`
+-- Table structure for table `bus`
 --
 
 CREATE TABLE `bus` (
@@ -54,7 +54,7 @@ CREATE TABLE `bus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `bus`
+-- Dumping data for table `bus`
 --
 
 INSERT INTO `bus` (`Numero_de_bus`, `busNumber`, `Plaque_immatriculation`, `Capacite`, `Company_id`) VALUES
@@ -68,7 +68,7 @@ INSERT INTO `bus` (`Numero_de_bus`, `busNumber`, `Plaque_immatriculation`, `Capa
 -- --------------------------------------------------------
 
 --
--- Structure de la table `client`
+-- Table structure for table `client`
 --
 
 CREATE TABLE `client` (
@@ -81,7 +81,7 @@ CREATE TABLE `client` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `client`
+-- Dumping data for table `client`
 --
 
 INSERT INTO `client` (`email`, `password`, `inactive`, `date_created`, `points`, `is_client`) VALUES
@@ -90,7 +90,7 @@ INSERT INTO `client` (`email`, `password`, `inactive`, `date_created`, `points`,
 ('islsqdam@gmail.com', NULL, 1, '2024-01-03 10:21:11', 0, 0),
 ('jijzd@gzhdjij', NULL, 1, NULL, 0, 0),
 ('kamal@gmail.com', '1', 1, '2024-01-02 12:27:14', 0, 1),
-('kamalislam@gmail.com', NULL, 1, NULL, 0, 0),
+('kamalislam@gmail.com', '1', 1, '2024-01-03 11:24:52', 0, 0),
 ('yandbvfhejsmin@gmail.jcom', NULL, 1, '2024-01-03 12:27:33', 0, 0),
 ('yasdmin@gmail.jcom', NULL, 1, '2024-01-03 12:07:25', 0, 0),
 ('yashgjnmin@gmail.jcom', NULL, 1, '2024-01-03 11:27:23', 0, 0),
@@ -99,14 +99,17 @@ INSERT INTO `client` (`email`, `password`, `inactive`, `date_created`, `points`,
 ('yasmin@gmail.jcom', '12', 1, '2024-01-03 08:53:08', 0, 1),
 ('yasmscsin@gmail.jcom', NULL, 1, '2024-01-03 11:24:52', 0, 0),
 ('yasrzegtmin@gmail.jcom', NULL, 1, '2024-01-03 12:28:50', 0, 0),
-('yassssssmin@gmail.jcom', NULL, 1, '2024-01-03 12:08:34', 0, 0),
+('yassin22e@gmail.com', '1', 1, '0000-00-00 00:00:00', 0, 1),
+('yassine123@gmail.com', 'pass123', 1, '0000-00-00 00:00:00', 0, 1),
+('yassine@gmail.com', 'pass123', 1, '0000-00-00 00:00:00', 166, 1),
+('yassssssmin@gmail.jcom', NULL, 1, '2024-01-03 12:08:34', -156, 0),
 ('yknhjbygasmin@gmail.jcom', NULL, 1, '2024-01-03 12:03:54', 0, 0),
-('ysddsdasmin@gmail.jcom', NULL, 1, '2024-01-03 12:30:37', 0, 0);
+('ysddsdasmin@gmail.jcom', '1', 1, '2024-01-03 12:30:37', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `company`
+-- Table structure for table `company`
 --
 
 CREATE TABLE `company` (
@@ -117,7 +120,7 @@ CREATE TABLE `company` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `company`
+-- Dumping data for table `company`
 --
 
 INSERT INTO `company` (`id`, `name`, `Bio`, `img`) VALUES
@@ -128,7 +131,7 @@ INSERT INTO `company` (`id`, `name`, `Bio`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `horaire`
+-- Table structure for table `horaire`
 --
 
 CREATE TABLE `horaire` (
@@ -143,7 +146,7 @@ CREATE TABLE `horaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `horaire`
+-- Dumping data for table `horaire`
 --
 
 INSERT INTO `horaire` (`ID`, `Date`, `Heure_depart`, `Heure_arrivee`, `Sieges_disponibles`, `ID_Bus`, `ID_Route`, `price`) VALUES
@@ -155,7 +158,7 @@ INSERT INTO `horaire` (`ID`, `Date`, `Heure_depart`, `Heure_arrivee`, `Sieges_di
 -- --------------------------------------------------------
 
 --
--- Structure de la table `notification`
+-- Table structure for table `notification`
 --
 
 CREATE TABLE `notification` (
@@ -166,10 +169,17 @@ CREATE TABLE `notification` (
   `time_created` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`id`, `content`, `recipient_id`, `recipient_type`, `time_created`) VALUES
+(0, 'one order by  yassine@gmail.com   seat : 5', 36, 'operator', '2024-01-04 15:48:51');
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `operator`
+-- Table structure for table `operator`
 --
 
 CREATE TABLE `operator` (
@@ -180,7 +190,7 @@ CREATE TABLE `operator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `operator`
+-- Dumping data for table `operator`
 --
 
 INSERT INTO `operator` (`email`, `password`, `inactive`, `company_id`) VALUES
@@ -191,33 +201,59 @@ INSERT INTO `operator` (`email`, `password`, `inactive`, `company_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reservation`
+-- Table structure for table `reservation`
 --
 
 CREATE TABLE `reservation` (
   `id` int(11) NOT NULL,
   `email_client` varchar(255) DEFAULT NULL,
   `ID_Horaire` int(11) DEFAULT NULL,
-  `number_seat` int(11) DEFAULT NULL
+  `number_seat` int(11) DEFAULT NULL,
+  `isactive` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `reservation`
+-- Dumping data for table `reservation`
 --
 
-INSERT INTO `reservation` (`id`, `email_client`, `ID_Horaire`, `number_seat`) VALUES
-(8, 'kamalislam@gmail.com', 20, 3),
-(9, 'cocg;qil.com', 20, 8),
-(17, 'yassssssmin@gmail.jcom', 20, 9),
-(18, 'yasjhjhmin@gmail.jcom', 20, 6),
-(19, 'yandbvfhejsmin@gmail.jcom', 20, 2),
-(20, 'yasrzegtmin@gmail.jcom', 20, 4),
-(21, 'ysddsdasmin@gmail.jcom', 20, 7);
+INSERT INTO `reservation` (`id`, `email_client`, `ID_Horaire`, `number_seat`, `isactive`) VALUES
+(18, 'yasjhjhmin@gmail.jcom', 20, 6, 1),
+(19, 'yandbvfhejsmin@gmail.jcom', 20, 2, 1),
+(20, 'yasrzegtmin@gmail.jcom', 20, 4, 1),
+(22, 'yassine@gmail.com', 20, 5, 1);
+
+--
+-- Triggers `reservation`
+--
+DELIMITER $$
+CREATE TRIGGER `after_reservation_cancel` AFTER DELETE ON `reservation` FOR EACH ROW BEGIN
+  DECLARE res_price DECIMAL(10,2);
+  
+  SELECT price INTO res_price FROM horaire WHERE ID = OLD.ID_horaire;
+
+  UPDATE client
+  SET points = points - res_price
+  WHERE email = OLD.email_client;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `after_reservation_done` AFTER INSERT ON `reservation` FOR EACH ROW BEGIN 
+  DECLARE res_price DECIMAL(10,2);
+  
+  SELECT price INTO res_price FROM horaire WHERE ID = NEW.ID_horaire;
+
+  UPDATE client 
+  SET points = points + res_price
+  WHERE email = NEW.email_client;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `route`
+-- Table structure for table `route`
 --
 
 CREATE TABLE `route` (
@@ -229,7 +265,7 @@ CREATE TABLE `route` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `route`
+-- Dumping data for table `route`
 --
 
 INSERT INTO `route` (`ID`, `Ville_depart`, `Ville_destination`, `Distance`, `Duree`) VALUES
@@ -238,36 +274,36 @@ INSERT INTO `route` (`ID`, `Ville_depart`, `Ville_destination`, `Distance`, `Dur
 (12, 'Safi', 'Agadir', 155, '20');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`email`);
 
 --
--- Index pour la table `bus`
+-- Indexes for table `bus`
 --
 ALTER TABLE `bus`
   ADD PRIMARY KEY (`Numero_de_bus`),
   ADD KEY `Company_id` (`Company_id`);
 
 --
--- Index pour la table `client`
+-- Indexes for table `client`
 --
 ALTER TABLE `client`
   ADD PRIMARY KEY (`email`);
 
 --
--- Index pour la table `company`
+-- Indexes for table `company`
 --
 ALTER TABLE `company`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `horaire`
+-- Indexes for table `horaire`
 --
 ALTER TABLE `horaire`
   ADD PRIMARY KEY (`ID`),
@@ -275,20 +311,20 @@ ALTER TABLE `horaire`
   ADD KEY `horaire_ibfk_2` (`ID_Route`);
 
 --
--- Index pour la table `notification`
+-- Indexes for table `notification`
 --
 ALTER TABLE `notification`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `operator`
+-- Indexes for table `operator`
 --
 ALTER TABLE `operator`
   ADD PRIMARY KEY (`email`),
   ADD KEY `company_id` (`company_id`);
 
 --
--- Index pour la table `reservation`
+-- Indexes for table `reservation`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`id`),
@@ -296,70 +332,70 @@ ALTER TABLE `reservation`
   ADD KEY `ID_Horaire` (`ID_Horaire`);
 
 --
--- Index pour la table `route`
+-- Indexes for table `route`
 --
 ALTER TABLE `route`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `bus`
+-- AUTO_INCREMENT for table `bus`
 --
 ALTER TABLE `bus`
   MODIFY `Numero_de_bus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT pour la table `company`
+-- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT pour la table `horaire`
+-- AUTO_INCREMENT for table `horaire`
 --
 ALTER TABLE `horaire`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT pour la table `reservation`
+-- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT pour la table `route`
+-- AUTO_INCREMENT for table `route`
 --
 ALTER TABLE `route`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `bus`
+-- Constraints for table `bus`
 --
 ALTER TABLE `bus`
   ADD CONSTRAINT `bus_ibfk_1` FOREIGN KEY (`Company_id`) REFERENCES `company` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `horaire`
+-- Constraints for table `horaire`
 --
 ALTER TABLE `horaire`
   ADD CONSTRAINT `horaire_ibfk_1` FOREIGN KEY (`ID_Bus`) REFERENCES `bus` (`Numero_de_bus`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `horaire_ibfk_2` FOREIGN KEY (`ID_Route`) REFERENCES `route` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `operator`
+-- Constraints for table `operator`
 --
 ALTER TABLE `operator`
   ADD CONSTRAINT `operator_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`);
 
 --
--- Contraintes pour la table `reservation`
+-- Constraints for table `reservation`
 --
 ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`email_client`) REFERENCES `client` (`email`),

@@ -6,7 +6,7 @@ class Database {
     private $host = "localhost";
     private $db_name = "smarttravelgroup";
     private $username = "root";
-    private $password = "1234";
+    private $password = "";
     public $conn;
 
     public function getConnection(){

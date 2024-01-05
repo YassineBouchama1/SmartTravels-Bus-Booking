@@ -77,8 +77,9 @@ class controller_auth_Client
 
 
         // if client login successfully
-        if ($clientIsExist) {
+        if (isset($clientIsExist)) {
             session_destroy();
+            session_start();
             echo "<script>localStorage.setItem('emailClient', '$Email');</script>";
             $_SESSION["Client"] = "Client";
             $_SESSION["emailClient"] = $Email;
@@ -86,6 +87,7 @@ class controller_auth_Client
 
             exit();
         } else {
+            echo "dddd";
             // if there is a erro send it with query url
             header("Location: index.php?action=loginClient&error=authentication_failed");
             exit();

@@ -8,7 +8,7 @@ class Databas
     private $host = "localhost";
     private $db_name = "smarttravelgroup";
     private $username = "root";
-    private $password = "";
+    private $password = "1234";
     public $conn;
 
     public function getConnection()

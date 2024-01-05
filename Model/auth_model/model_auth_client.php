@@ -11,8 +11,8 @@ class model_auth_Client extends Database
   {
 
 
-    $consulta = $this->getConnection()->prepare("INSERT INTO `client`(`email`, `password`, `inactive`, `date_created`, `points`, `is_client`) 
-    VALUES ('$email','$password','$inactive','','0','1')");
+    $consulta = $this->getConnection()->prepare("INSERT INTO `client`(`email`, `password`, `inactive`,  `points`, `is_client`) 
+    VALUES ('$email','$password','$inactive','0','1')");
     $result = $consulta->execute();
 
     return $result;

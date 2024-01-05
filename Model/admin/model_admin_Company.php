@@ -6,25 +6,27 @@
 
 
 
-class AdminCompany extends Database {
+class AdminCompany extends Database
+{
 
 
-    public function getAllCompany(){
+    public function getAllCompany()
+    {
 
-        $consulta = $this->getConnection()->prepare("SELECT * FROM  Company" );
+        $consulta = $this->getConnection()->prepare("SELECT * FROM  Company");
         $consulta->execute();
         $resultados = $consulta->fetchAll();
 
-        $Company = array(); 
+        $Company = array();
         foreach ($resultados as $B) {
-            $Company[] = new admin_Company($B["id"],$B["name"],$B["Bio"], $B["img"]);
+            $Company[] = new admin_Company($B["id"], $B["name"], $B["Bio"], $B["img"]);
         }
         return $Company;
-       
     }
 
-    
-    public function getByIdCompany($id){
+
+    public function getByIdCompany($id)
+    {
         $consulta = $this->getConnection()->prepare("SELECT * 
                                                 FROM Company  WHERE id = :id");
         $consulta->execute(array(
@@ -33,50 +35,51 @@ class AdminCompany extends Database {
         /* Fetch all of the remaining rows in the result set */
         $resultados = $consulta->fetch();
 
-        $Company = array(); 
-     
-            $Company[] = new admin_Company($resultados["id"],$resultados["name"],$resultados["Bio"], $resultados["img"]);
-      
+        $Company = array();
+
+        $Company[] = new admin_Company($resultados["id"], $resultados["name"], $resultados["Bio"], $resultados["img"]);
+
         return $Company;
     }
-    
-    public function getByColumnCompany($column,$value){
+
+    public function getByColumnCompany($column, $value)
+    {
         $consulta = $this->getConnection()->prepare("SELECT * 
                                                 FROM Company WHERE " . $column . " = :value");
         $consulta->execute(array(
             "value" => $value
         ));
         $resultados = $consulta->fetch();
-       
-        $Company = array(); 
 
-     
-        $Company[] = new admin_Company($resultados["id"],$resultados["name"],$resultados["Bio"], $resultados["img"]);
-  
-    return $Company;
+        $Company = array();
+
+
+        $Company[] = new admin_Company($resultados["id"], $resultados["name"], $resultados["Bio"], $resultados["img"]);
+
+        return $Company;
     }
-    
-    public function deleteByIdCompany($id){
+
+    public function deleteByIdCompany($id)
+    {
         try {
             $consulta = $this->getConnection()->prepare("DELETE FROM Company WHERE id = :id");
             $consulta->execute(array(
                 "id" => $id
             ));
-           
         } catch (Exception $e) {
             echo 'Falló el DELETE (deleteById): ' . $e->getMessage();
             return -1;
         }
     }
-    
-    public function deleteByColumnCompany($column,$value){
+
+    public function deleteByColumnCompany($column, $value)
+    {
         try {
             $consulta = $this->getConnection()->prepare("DELETE FROM Company WHERE :column = :value");
             $consulta->execute(array(
                 "column" => $value,
                 "value" => $value,
             ));
-           
         } catch (Exception $e) {
             echo 'Falló el DELETE (deleteBy): ' . $e->getMessage();
             return -1;
@@ -84,7 +87,8 @@ class AdminCompany extends Database {
     }
 
 
-    public function InsertCompany($name,$Bio,$img){
+    public function InsertCompany($name, $Bio, $img)
+    {
 
         $consulta = $this->getConnection()->prepare("INSERT INTO Company(name,Bio,img)
                                         VALUES (:name,:Bio,:img)");
@@ -92,13 +96,14 @@ class AdminCompany extends Database {
             "name" => $name,
             "Bio" => $Bio,
             "img" => $img
-          
+
         ));
 
-        return $result; 
+        return $result;
     }
 
-    public function UpdateCompany($id, $name, $Bio, $img) {
+    public function UpdateCompany($id, $name, $Bio, $img)
+    {
         try {
             $consulta = $this->getConnection()->prepare("
                 UPDATE Company 
@@ -108,14 +113,14 @@ class AdminCompany extends Database {
                     img = :img
                 WHERE id = :id 
             ");
-    
+
             $resultado = $consulta->execute(array(
                 "name" => $name,
                 "Bio" => $Bio,
                 "img" => $img,
                 "id" => $id
             ));
-    
+
             return $resultado;
         } catch (PDOException $e) {
             // Handle database errors
@@ -123,12 +128,4 @@ class AdminCompany extends Database {
             return false;
         }
     }
-    
-
-
-
-
- 
 }
-
-
